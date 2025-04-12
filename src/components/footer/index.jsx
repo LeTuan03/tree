@@ -22,7 +22,7 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 // assets
-import logo from '@/assets/images/logo/png/Color_logo_nobg.png';
+import logo from '@/assets/images/logo/png/logo_nobg.png';
 
 function Footer() {
 	return (
@@ -117,50 +117,6 @@ function Footer() {
 						</Stack>
 					</Grid>
 				</Grid>
-
-				<Divider
-					variant="middle"
-					sx={{
-						bgcolor: (theme) => theme.palette.secondary.main,
-					}}
-				/>
-				<Stack direction={{ lg: 'row' }} justifyContent="space-between" alignItems="center" flexWrap="wrap">
-					<Typography variant="body1" textAlign="center">
-						Copyright 2023 © All Rights Reserved. Slim React MUI Template
-					</Typography>
-					<Typography variant="subtitle1" textAlign="center">
-						Distributed by{' '}
-						<Link
-							underline="hover"
-							sx={{
-								cursor: 'pointer',
-							}}
-							href="https://themewagon.com/"
-							target="_blank"
-							rel="noreferrer noopener"
-							fontWeight="medium"
-						>
-							ThemeWagon
-						</Link>{' '}
-					</Typography>
-					<Typography variant="subtitle1" textAlign="center">
-						💻 - Construido por{' '}
-						<Link
-							underline="hover"
-							sx={{
-								cursor: 'pointer',
-							}}
-							href="https://antonioayola.netlify.app/"
-							target="_blank"
-							rel="noreferrer noopener"
-							fontWeight="medium"
-						>
-							@Antonio Ayola
-						</Link>{' '}
-						con 💛 &#x1F1F2;&#x1F1FD;
-						{/* Built by antonio ayola and contributors */}
-					</Typography>
-				</Stack>
 			</Container>
 		</Box>
 	);

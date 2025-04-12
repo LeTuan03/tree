@@ -47,6 +47,7 @@ const HomePage = withLazyLoadably(lazy(() => import('@/pages/home')));
 const ProductsPage = withLazyLoadably(lazy(() => import('@/pages/products')));
 const ProductsDetailPage = withLazyLoadably(lazy(() => import('@/pages/productDetail')));
 const CartPage = withLazyLoadably(lazy(() => import('@/pages/cart')));
+const CategoryPage = withLazyLoadably(lazy(() => import('@/pages/category')));
 
 function Router() {
 	return (
@@ -112,6 +113,9 @@ function Router() {
 								<Route path="503" element={<Page503 />} />
 								<Route path="505" element={<Page505 />} />
 							</Route>
+						</Route>
+						<Route path="manage/">
+							<Route path="category" element={<CategoryPage />} />
 						</Route>
 					</Route>
 					<Route path="/" element={<MainLayout container={false} pb={false} />}>

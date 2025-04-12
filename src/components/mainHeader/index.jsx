@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 
 // assets
-import logo from '@/assets/images/logo/png/Color_logotext2_nobg.png';
+import logo from '@/assets/images/logo/png/logo_nobg.png';
 
 import LoggedUser from './loggedUser';
 import SearchBar from './searchBar';
@@ -30,6 +30,7 @@ function MainHeader() {
 							xs: 100,
 							sm: 150,
 						}}
+						height={50}
 						src={logo}
 						alt="logo"
 					/>

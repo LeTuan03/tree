@@ -287,6 +287,17 @@ const NAV_LINKS_CONFIG = [
 			},
 			{
 				id: uuid(),
+				title: 'Admin Pages',
+				type: 'group',
+				menuChildren: [
+					{
+						title: 'Category',
+						href: '/manage/category',
+					},
+				],
+			},
+			{
+				id: uuid(),
 				title: 'Landing Pages WIP',
 				type: 'group',
 				menuChildren: [
