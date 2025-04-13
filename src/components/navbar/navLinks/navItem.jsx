@@ -6,8 +6,65 @@ import Stack from '@mui/material/Stack';
 import ButtonBase from '@mui/material/ButtonBase';
 // Icons
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Box } from '@mui/material';
 
-export function NavItem({ Icon, title, showExpand = false, selected = false }) {
+export function NavItem({ Icon, title, showExpand = false, selected = false, layout = 'horizontal' }) {
+	if (layout === 'vertical') {
+		return (
+			<Stack
+				width="100%"
+				direction="row"
+				p={1.5}
+				border={1}
+				borderLeft={0}
+				borderColor="border"
+				alignItems="center"
+				alignContent="center"
+				justifyContent="center"
+				spacing={0.5}
+				title={title}
+				sx={{
+					justifyContent: showExpand && 'space-between',
+				}}
+			>
+				<Box alignItems="center" sx={{ display: 'flex' }}>
+					{Icon && (
+						<Icon
+							sx={{
+								fontSize: 18,
+								color: (theme) =>
+									selected ? theme.palette.primary.contrastText : theme.palette.primary[300],
+							}}
+						/>
+					)}
+					<Typography
+						pt={0.2}
+						display={{
+							xs: 'none',
+							md: 'inline',
+						}}
+						textTransform="uppercase"
+						fontWeight="500"
+						fontSize="13px"
+						color={selected ? 'primary.contrastText' : 'text.tertiary'}
+						ml={0.5}
+					>
+						{title}
+					</Typography>
+				</Box>
+				{showExpand && (
+					<ExpandMoreIcon
+						fontSize="small"
+						sx={{
+							color: selected ? 'primary.contrastText' : 'text.secondary',
+							fontSize: 17,
+						}}
+					/>
+				)}
+			</Stack>
+		);
+	}
+
 	return (
 		<Stack
 			width="100%"
@@ -77,14 +134,19 @@ export function NavItemButton({ children, selected, sx, ...rest }) {
 		</ButtonBase>
 	);
 }
-export function NavLink({ href, Icon, title }) {
+export function NavLink({ href, Icon, title, layout }) {
 	const match = useMatch({
 		path: href,
 	});
 
 	return (
-		<NavItemButton selected={match} component={RouterLink} to={href}>
-			<NavItem Icon={Icon} title={title} selected={match} />
+		<NavItemButton
+			selected={match}
+			component={RouterLink}
+			to={href}
+			sx={{ width: layout === 'vertical' ? '100%' : null }}
+		>
+			<NavItem Icon={Icon} title={title} selected={match} layout={layout} />
 		</NavItemButton>
 	);
 }

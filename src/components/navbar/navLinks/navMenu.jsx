@@ -23,7 +23,7 @@ const deepMatch = ({ items, match }) =>
 		}
 		return match.includes(el?.href);
 	});
-function NavMenu({ minWidth = '100%', menuChildren = [], Icon, title }) {
+function NavMenu({ minWidth = '100%', menuChildren = [], Icon, title, layout }) {
 	const location = useLocation();
 	const [anchorEl, setAnchorEl] = useState(null);
 	const pathnamee = location.pathname + location.hash;
@@ -53,8 +53,11 @@ function NavMenu({ minWidth = '100%', menuChildren = [], Icon, title }) {
 			disableRipple
 			onMouseEnter={handlePopoverOpen}
 			onMouseLeave={handlePopoverClose}
+			sx={{
+				width: layout === 'vertical' ? '100%' : null,
+			}}
 		>
-			<NavItem showExpand Icon={Icon} title={title} selected={match} />
+			<NavItem showExpand Icon={Icon} title={title} selected={match} layout={layout} />
 			<Popper
 				open={open}
 				anchorEl={anchorEl}

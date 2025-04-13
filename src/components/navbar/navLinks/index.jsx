@@ -4,17 +4,24 @@ import Stack from '@mui/material/Stack';
 import { NavLink } from './navItem';
 import NavMenu from './navMenu';
 
-function NavLinks({ navItems }) {
+function NavLinks({ navItems, layout }) {
 	const navMenuItems = navItems.map((item) => {
 		const { title, type, Icon, id, menuMinWidth, menuChildren, href } = item;
 
 		switch (type) {
 			case 'group':
 				return (
-					<NavMenu key={id} minWidth={menuMinWidth} menuChildren={menuChildren} Icon={Icon} title={title} />
+					<NavMenu
+						key={id}
+						minWidth={menuMinWidth}
+						menuChildren={menuChildren}
+						Icon={Icon}
+						title={title}
+						layout={layout}
+					/>
 				);
 			case 'item':
-				return <NavLink key={id} href={href} Icon={Icon} title={title} />;
+				return <NavLink key={id} href={href} Icon={Icon} title={title} layout={layout} />;
 			default:
 				return (
 					<Typography variant="h6" color="error" align="center">

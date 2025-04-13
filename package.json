@@ -3,8 +3,6 @@
 	"private": false,
 	"version": "1.0.0",
 	"homepage": "https://themewagon.github.io/slim-free-react-mui-template",
-	"license": "MIT",
-	"type": "module",
 	"scripts": {
 		"dev": "vite",
 		"dev:host": "vite --host",
@@ -14,7 +12,7 @@
 		"lint:fix": "eslint --fix --ext .js,.jsx .",
 		"format": "prettier --write .",
 		"installD": "npm install --no-audit --no-fund --no-optional",
-		"predeploy": "npm run build && cp ./dist/index.html ./dist/404.html",
+		"predeploy": "yarn build && cpy dist/index.html dist/404.html",
 		"deploy": "gh-pages -d dist"
 	},
 	"dependencies": {
@@ -45,6 +43,7 @@
 		"@types/react": "^18.0.28",
 		"@types/react-dom": "^18.0.11",
 		"@vitejs/plugin-react": "^3.1.0",
+		"cpy-cli": "^5.0.0",
 		"eslint": "^8.36.0",
 		"eslint-config-airbnb": "^19.0.4",
 		"eslint-config-prettier": "^8.8.0",

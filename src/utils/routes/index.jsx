@@ -8,6 +8,7 @@ import MinimalLayout from '@/components/layouts/minimalLayout';
 import MainLayout from '@/components/layouts/mainLayout';
 
 import Page404 from '@/pages/errorPages/404';
+import AdminLayout from '@/components/layouts/adminLayout';
 
 const Dashboard1Page = withLazyLoadably(lazy(() => import('@/pages/dashboardsPages/dashboard1')));
 const Dashboard2Page = withLazyLoadably(lazy(() => import('@/pages/dashboardsPages/dashboard2')));
@@ -51,7 +52,7 @@ const CategoryPage = withLazyLoadably(lazy(() => import('@/pages/category')));
 
 function Router() {
 	return (
-		<BrowserRouter basename="/ws">
+		<BrowserRouter>
 			<ScrollToTopOnRouteChange>
 				<Routes>
 					<Route path="/" element={<MinimalLayout />}>
@@ -114,6 +115,12 @@ function Router() {
 								<Route path="505" element={<Page505 />} />
 							</Route>
 						</Route>
+						{/* <Route path="manage/">
+							<Route path="category" element={<CategoryPage />} />
+						</Route> */}
+					</Route>
+					<Route path="/" element={<AdminLayout />}>
+						<Route index element={<Dashboard1Page />} />
 						<Route path="manage/">
 							<Route path="category" element={<CategoryPage />} />
 						</Route>
